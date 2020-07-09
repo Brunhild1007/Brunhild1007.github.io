@@ -1,0 +1,1344 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="sql语句复习, Brunhilde">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>sql语句复习 | Brunhilde</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Brunhilde</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Brunhilde</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">sql语句复习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-09
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h2><p><strong>例子1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">USE school</span><br><span class="line">GO</span><br><span class="line">--声明游标</span><br><span class="line">DECLARE st_cursor CURSOR FOR SELECT 学号,姓名,班号 FROM student</span><br><span class="line">--打开游标</span><br><span class="line">OPEN st_cursor</span><br><span class="line">--提取第一行数据</span><br><span class="line">FETCH NEXT FROM st_cursor</span><br><span class="line">--关闭游标</span><br><span class="line">CLOSE st_cursor</span><br><span class="line">--释放游标</span><br><span class="line">DEALLOCATE st_cursor</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">USE school</span><br><span class="line">ALTER TABLE score ADD 等级char(2)</span><br><span class="line">GO</span><br><span class="line">DECLARE st_cursor CURSOR </span><br><span class="line">   FOR SELECT 分数FROM score WHERE 分数IS NOT NULL</span><br><span class="line">DECLARE @fs int,@dj char(1)</span><br><span class="line">OPEN st_cursor</span><br><span class="line">FETCH NEXT FROM st_cursor INTO @fs</span><br><span class="line">WHILE @@FETCH_STATUS &#x3D; 0</span><br><span class="line">BEGIN</span><br><span class="line">  SET @dj&#x3D;CASE</span><br><span class="line">    WHEN @fs&gt;&#x3D;90 THEN &#39;A&#39; </span><br><span class="line">    WHEN @fs&gt;&#x3D;80 THEN &#39;B&#39; </span><br><span class="line">    WHEN @fs&gt;&#x3D;70 THEN &#39;C&#39; </span><br><span class="line">    WHEN @fs&gt;&#x3D;60 THEN &#39;D&#39; </span><br><span class="line">    ELSE &#39;E&#39; </span><br><span class="line">  END</span><br><span class="line">  UPDATE score</span><br><span class="line">  SET 等级&#x3D;@dj</span><br><span class="line">  WHERE CURRENT OF st_cursor </span><br><span class="line">  FETCH NEXT FROM st_cursor INTO @fs</span><br><span class="line">END</span><br><span class="line">CLOSE st_cursor</span><br><span class="line">DEALLOCATE st_cursor</span><br><span class="line">GO</span><br><span class="line">SELECT * FROM score ORDER BY 学号</span><br><span class="line">GO</span><br><span class="line">ALTER TABLE score DROP COLUMN 等级</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据库创建和删除"><a href="#数据库创建和删除" class="headerlink" title="数据库创建和删除"></a>数据库创建和删除</h2><p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">use master</span><br><span class="line">go</span><br><span class="line">if exists(select * from sysdatabases where name&#x3D;&#39;TTT&#39;)</span><br><span class="line">drop database TTT</span><br><span class="line">create database TTT</span><br><span class="line">on</span><br><span class="line">(</span><br><span class="line">	name&#x3D;&#39;TTT&#39;,</span><br><span class="line">	filename&#x3D;&#39;D:\DB\TTT.MDF&#39;,</span><br><span class="line">	size &#x3D; 10mb,</span><br><span class="line">	maxsize&#x3D;100mb,</span><br><span class="line">	filegrowth&#x3D;10mb</span><br><span class="line">)</span><br><span class="line">log on </span><br><span class="line">(</span><br><span class="line">	name&#x3D;&#39;TTT_log&#39;,</span><br><span class="line">	filename&#x3D;&#39;D:\DB\TTT_log.ldf&#39;,</span><br><span class="line">	size&#x3D;2mb,</span><br><span class="line">	maxsize&#x3D;20mb,</span><br><span class="line">	filegrowth&#x3D;1mb</span><br><span class="line">)</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p><strong>1、建立表索引</strong></p>
+<p>  create index 索引名 on 表名(列名，列名);</p>
+<p><strong>2、删除表索引</strong></p>
+<p>  If exists(select name from sysindexes where name=’索引名’)</p>
+<p>​        drop index 表名.索引名;</p>
+<p><strong>3、查看表索引</strong></p>
+<p>  Select * from sysibm.sysindexes where tbname=’表名’;  —表名区分大小写</p>
+<p><strong>4、查看索引</strong></p>
+<p>​    Exec sp_helpindex 表名</p>
+<p><strong>5、索引禁用</strong></p>
+<p>​    Alter index 索引名 on 表名 disable</p>
+<p><strong>6、索引启用</strong></p>
+<p>​    Alter index 索引名 on 表名 rebuild</p>
+<p><strong>7、修改索引</strong></p>
+<p>​    Alter index 索引名 on 表名 rebuild with (PAD_INDEX=ON,FILLFACTOR=90)</p>
+<p>//将填充因子改为90</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p><strong>1、</strong> <strong>创建视图</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Create view 视图名</span><br><span class="line"></span><br><span class="line">As</span><br><span class="line"></span><br><span class="line">​    Select * from 表名</span><br><span class="line"></span><br><span class="line">​    【where-------】</span><br><span class="line"></span><br><span class="line">Go</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、</strong> <strong>删除视图</strong></p>
+<p>If object_id(‘视图名’,’V’) is not null //如果视图存在则删除</p>
+<p>Drop view 视图名</p>
+<p><strong>3、</strong> <strong>查询视图</strong></p>
+<p>Select * from 视图名</p>
+<p><strong>4、</strong> <strong>修改视图</strong></p>
+<p>Alter view 视图名</p>
+<p>As </p>
+<p>select语句</p>
+<p><strong>5、</strong> <strong>更改数据</strong></p>
+<p>Update 视图名 set 列名=‘xxx’ where 列名=‘xxx’</p>
+<p><strong>6、</strong> <strong>插入记录</strong></p>
+<p>Insert into 视图名(列名1，列名2，列名3) values(xxx,xxx,xxx)</p>
+<p><strong>7、</strong> <strong>删除记录</strong></p>
+<p>Delete 视图名 where 列名=‘xxx’</p>
+<p><strong>8、</strong> <strong>查看视图信息</strong></p>
+<p>Exec sp_helptext 视图名</p>
+<p><strong>9、</strong> <strong>重命名视图</strong></p>
+<p>**Exec sp_rename ‘原视图名‘，’现视图名’</p>
+<h2 id="ALTER语句"><a href="#ALTER语句" class="headerlink" title="ALTER语句"></a>ALTER语句</h2><p><strong>1：向表中添加字段</strong></p>
+<p>Alter table [表名] add [列名] 类型</p>
+<p><strong>2:</strong> <strong>删除字段</strong></p>
+<p>Alter table [表名] drop column [列名]</p>
+<p><strong>3:</strong> <strong>修改表中字段类型</strong> <strong>（可以修改列的类型，是否为空）</strong></p>
+<p>Alter table [表名] alter column [列名] 类型</p>
+<p><strong>4</strong>：<strong>添加主键</strong></p>
+<p>Alter table [表名] add constraint [ 约束名] primary key( [列名])</p>
+<p><strong>5</strong>：<strong>添加唯一约束</strong></p>
+<p>Alter table [表名] add constraint [ 约束名] unique([列名])</p>
+<p><strong>6：添加表中某列的默认值</strong></p>
+<p>Alter table [表名] add constraint [约束名] default(默认值) for [列名]<br> <strong>7</strong>：<strong>添加约束</strong></p>
+<p>Alter table [表名] add constraint [约束名] check (内容)</p>
+<p><strong>8:</strong>添加外键约束</p>
+<p> Alter table [表名] add constraint [约束名] foreign key(列名) references 另一表名(列名)</p>
+<p><strong>9:</strong>删除约束</p>
+<p>Alter table [表名] drop constraint [约束名] </p>
+<p><strong>10:</strong>重命名表</p>
+<p>exec sp_rename ‘[原表名]’,’[新表名]’</p>
+<p><strong>11</strong>：重命名列名</p>
+<p>exec sp_rename ‘[表名].[列名]’,’[表名].[新列名]’</p>
+<p> <strong>12：删除主键，以及主键上的索引</strong></p>
+<p>alter table table_name drop constraint clusteredName</p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>l <strong>PRIMARY KEY约束（Q:怎么在创建表的时候选择两个属性作为主键）</strong></p>
+<p><strong>例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table table7</span><br><span class="line">(</span><br><span class="line">	c1 int,c2 int, c3 char(5),c4 char(10),</span><br><span class="line">	 constraint pk_1 primary key(c1,c2)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>l <strong>FOREIGN KEY约束</strong></p>
+<p>l <strong>UNIQUE约束</strong></p>
+<p>l <strong>CHECK约束</strong></p>
+<p>l <strong>NOT NULL（非空性）</strong></p>
+<p>| <strong>表约束</strong></p>
+<p>​      列约束可以作为列定义的一部分，并且仅适用于指定的那个列。表约束的定义与列定义无关，可以适用于表中一个以上的列。列约束和表约束均在创建表或修改表时通过<strong>CONSTRAINT</strong>关键字来指定。</p>
+<p>​    当一个约束中必须包含一个以上的列时，必须使用表约束。例如，如果一个表的主键内有两个或两个以上的列，则必须使用表约束将这两个列加入主键内。</p>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><p> <strong>1.规则创建</strong></p>
+<p> create rule 规则名 as 规则</p>
+<p><strong>2.绑定规则</strong></p>
+<p>sp_bindrule ‘规则名’，’绑定规则的表和列名’</p>
+<p>例：EXEC sp_bindrule ‘rule1’,’table9.c1’</p>
+<p><strong>3.解除绑定</strong></p>
+<p>exec sp_unbindrule ‘表名.列名’</p>
+<p><strong>4.删除规则</strong></p>
+<p>drop rule 规则名</p>
+<h2 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h2><h3 id="一、显式事务"><a href="#一、显式事务" class="headerlink" title="一、显式事务"></a>一、显式事务</h3><p><strong>1.启动事务</strong></p>
+<p>begin tran【saction】</p>
+<p><strong>2.结束事务</strong></p>
+<p>commit 【train【saction】】</p>
+<p><strong>3.回滚事务</strong></p>
+<p>rollback【tran【saction】】</p>
+<p><strong>4.例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">begin transaction</span><br><span class="line">	insert into table7 values(0,0,&#39;dd&#39;,&#39;123&#39;)</span><br><span class="line">commit</span><br><span class="line">go</span><br><span class="line">select* from table7</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.保存点</strong></p>
+<p>save tran【saction】 保存点名称</p>
+<p><strong>例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">use test </span><br><span class="line">go</span><br><span class="line">begin transaction</span><br><span class="line">	insert into table7 values(0,0,&#39;ee&#39;,&#39;456&#39;)</span><br><span class="line">save transaction save1</span><br><span class="line">	insert into table7 values(0,0,&#39;ff&#39;,&#39;789&#39;)</span><br><span class="line">rollback transaction save1</span><br><span class="line">commit transaction</span><br><span class="line">go</span><br><span class="line">select * from table7</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>PS：</strong>如创建、删除和修改数据库的操作是不能撤销的</p>
+<h3 id="二、自动提交事务"><a href="#二、自动提交事务" class="headerlink" title="二、自动提交事务"></a>二、自动提交事务</h3><h3 id="三、隐性事务"><a href="#三、隐性事务" class="headerlink" title="三、隐性事务"></a>三、隐性事务</h3><h3 id="四、事务和异常处理"><a href="#四、事务和异常处理" class="headerlink" title="四、事务和异常处理"></a>四、事务和异常处理</h3><p>直接上例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">create table table3(no char(5) unique)</span><br><span class="line">go</span><br><span class="line">begin try</span><br><span class="line">	begin transaction mytrans</span><br><span class="line">		insert into table3 values(&#39;aaa&#39;)</span><br><span class="line">		insert into table3 values(&#39;aaa&#39;)</span><br><span class="line">	commit transaction mytrans</span><br><span class="line">end try</span><br><span class="line">begin catch</span><br><span class="line">	select error_number() as&#39;错误号&#39;,error_message()as&#39;错误信息&#39;</span><br><span class="line">	rollback transaction mytrans</span><br><span class="line">end catch</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>分析：该程序在test数据库中建立一个表table3，含一个唯一值的列no。事务Mytrans用于插入2个相同的记录，由CATCH捕捉到错误，然后执行事务回滚。程序执行时显示的出错消息如图所示。该程序执行后，会建立table3表，但表中没有任何记录。</strong></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="一、标量值函数"><a href="#一、标量值函数" class="headerlink" title="一、标量值函数"></a>一、标量值函数</h3><p>返回单个数据值</p>
+<p><strong>（使用create function语句创建）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION 函数名</span><br><span class="line">( [ &#123;@参数名 [AS] 参数数据类型 [ &#x3D;默认值 ] [ READONLY ] &#125; [ ,…n ]</span><br><span class="line">  ])</span><br><span class="line">RETURNS 返回数据类型 [AS]</span><br><span class="line">    BEGIN </span><br><span class="line">        函数体</span><br><span class="line">        RETURN 标量表达式</span><br><span class="line">    END</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_ID(&#39;cu&#39;,&#39;FN&#39;) is not null</span><br><span class="line">drop function cu</span><br><span class="line">go</span><br><span class="line">create function cu (@c1 int ,@c2 int,@c3 int)</span><br><span class="line">returns int</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	return(@c1*@c2*@c3)</span><br><span class="line">end</span><br><span class="line">go</span><br><span class="line">print &#39;立方体体积为：&#39;+cast(dbo.cu(6,4,3) as char(10))</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、内联表值函数"><a href="#二、内联表值函数" class="headerlink" title="二、内联表值函数"></a>二、内联表值函数</h3><p>返回table数据类型（无begin…end语句块构成的函数体）</p>
+<p><strong>内联表值函数的特点是返回table变量，自动将其中的SELECT语句（只能有一个SELECT语句，因而不需要BEGIN…END括起来）的查询结果插入到该变量中，然后将该变量作为返回值返回。</strong></p>
+<p><strong>（使用create function语句创建）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION 函数名</span><br><span class="line">( [ &#123;@参数名 [AS] 参数数据类型 [ &#x3D;默认值 ] [ READONLY ] &#125; [ ,…n ]</span><br><span class="line">  ])</span><br><span class="line">RETURNS TABLE [AS] RETURN [(]select语句[)]</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;f1&#39;,&#39;if&#39;) is not null</span><br><span class="line"> drop function f1</span><br><span class="line">go</span><br><span class="line">create function f1(@c1 char(10))</span><br><span class="line">	returns table</span><br><span class="line">as</span><br><span class="line">return</span><br><span class="line">(</span><br><span class="line">	select t.c1,t.c3</span><br><span class="line">	from table7 t</span><br><span class="line">	where t.c4&#x3D;@c1</span><br><span class="line">)</span><br><span class="line">go</span><br><span class="line">select * from f1(&#39;456&#39;)</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="三、多语句表值函数"><a href="#三、多语句表值函数" class="headerlink" title="三、多语句表值函数"></a>三、多语句表值函数</h3><p>  多语句表值需要使用BEGIN…END，其中可以包含多个T-SQL语句，可以包含聚合函数。返回值表中的数据是由函数体中insert语句插入的。</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;f2&#39;,&#39;tf&#39;) is not null</span><br><span class="line">	drop function f2</span><br><span class="line">go</span><br><span class="line">create function f2(@c1 char(10))</span><br><span class="line">	returns @st table</span><br><span class="line">	(</span><br><span class="line">		c1 int,</span><br><span class="line">		c4 char(10)</span><br><span class="line">	)</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	insert @st</span><br><span class="line">	select table7.c1,table7.c4</span><br><span class="line">	from table7</span><br><span class="line">	where table7.c3&#x3D;@c1</span><br><span class="line">return</span><br><span class="line">end</span><br><span class="line">go</span><br><span class="line">select * from f2(&#39;dd&#39;)</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除用户定义函数</strong></p>
+<p>drop function 函数名</p>
+<p><strong>例题：</strong></p>
+<p>设计一个用户定义函数funstud3，根据学号得到该学生的学号、姓名、课程名和成绩等级（分数≥90为优秀，否则分数≥80为良好，否则分数≥70为中等，否则分数≥60为及格，其他为不及格）列表。并输出学号为‘105’的学生结果集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">use School3148</span><br><span class="line">if object_id(&#39;f3&#39;,&#39;TF&#39;) is not null</span><br><span class="line">	drop function f3</span><br><span class="line">go</span><br><span class="line">create function f3(@num int)</span><br><span class="line">returns @st table</span><br><span class="line">(</span><br><span class="line">	sno int,</span><br><span class="line">	name char(10),</span><br><span class="line">	cname char(20),</span><br><span class="line">	rank1 char(6)</span><br><span class="line">)</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	insert @st</span><br><span class="line">	select student3148.学号,Student3148.姓名,course.CourseName,</span><br><span class="line">		case </span><br><span class="line">		when score.Score&gt;&#x3D;90 then &#39;A&#39;</span><br><span class="line">		when score.score&gt;&#x3D;80 then &#39;B&#39;</span><br><span class="line">		when score.score&gt;&#x3D;70 then &#39;C&#39;</span><br><span class="line">		when score.score&gt;&#x3D;60 then &#39;D&#39;</span><br><span class="line">		when score.score&lt;60 then &#39;E&#39;</span><br><span class="line">		end as &#39;等级&#39;</span><br><span class="line">	from Student3148,course,score</span><br><span class="line">	where Student3148.学号&#x3D;score.Num and score.CourseNum&#x3D;course.CourseNum and student3148.学号&#x3D;@num</span><br><span class="line">	order by course.CourseName</span><br><span class="line">	return</span><br><span class="line">end</span><br><span class="line">go </span><br><span class="line">select * from f3(&#39;2018123148&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>另外这一题也可以用内联表值函数做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">use school3148</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;f1&#39;,&#39;if&#39;) is not null</span><br><span class="line">	drop function f1</span><br><span class="line">go</span><br><span class="line">create function f1(@num char(10))</span><br><span class="line">returns table</span><br><span class="line">as</span><br><span class="line">return</span><br><span class="line">(</span><br><span class="line">	select student3148.学号,Student3148.姓名,course.CourseName,</span><br><span class="line">		case </span><br><span class="line">		when score.Score&gt;&#x3D;90 then &#39;A&#39;</span><br><span class="line">		when score.score&gt;&#x3D;80 then &#39;B&#39;</span><br><span class="line">		when score.score&gt;&#x3D;70 then &#39;C&#39;</span><br><span class="line">		when score.score&gt;&#x3D;60 then &#39;D&#39;</span><br><span class="line">		when score.score&lt;60 then &#39;E&#39;</span><br><span class="line">		end as &#39;等级&#39;</span><br><span class="line">	from Student3148,course,score</span><br><span class="line">	where Student3148.学号&#x3D;score.Num and score.CourseNum&#x3D;course.CourseNum and student3148.学号&#x3D;@num</span><br><span class="line">)</span><br><span class="line">go</span><br><span class="line">select *from f1(&#39;2018123148&#39;)</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p><strong>1.创建存储过程</strong></p>
+<p>create procedure 存储过程名 as sql语句</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;stud&#39;,&#39;P&#39;) is not null</span><br><span class="line"> drop procedure stud</span><br><span class="line">go</span><br><span class="line">create procedure stud</span><br><span class="line">as</span><br><span class="line">	select table7.c1,table7.c3</span><br><span class="line">	from table7</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p>带参数的的存储过程的创建</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">use test </span><br><span class="line">go</span><br><span class="line">if object_id(&#39;t7&#39;,&#39;p&#39;) is not null</span><br><span class="line">drop procedure t7</span><br><span class="line">go</span><br><span class="line">create procedure t7(@t char(10))</span><br><span class="line">as</span><br><span class="line">	select t.c1,t.c2,t.c3</span><br><span class="line">	from table7 t</span><br><span class="line">	where t.c4&#x3D;@t</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p>也可以在创建时为参数指定默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(@t char(10)&#x3D;&#39;132&#39;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>带返回参数的存储过程</strong></p>
+<p>在创建存储过程的时候在参数后面添加 output</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">use test </span><br><span class="line">go</span><br><span class="line">if object_id(&#39;t7&#39;,&#39;p&#39;) is not null</span><br><span class="line">drop procedure t7</span><br><span class="line">go</span><br><span class="line">create procedure t7</span><br><span class="line">(@t char(10),@o1 int output,@o2 int output,@o3 char(5) output)</span><br><span class="line">as</span><br><span class="line">	select @o1&#x3D;t.c1,@o2&#x3D;t.c2,@o3&#x3D;t.c3</span><br><span class="line">	from table7 t</span><br><span class="line">	where t.c4&#x3D;@t</span><br><span class="line">go</span><br><span class="line">declare @r1 int</span><br><span class="line">declare @r2 int</span><br><span class="line">declare @r3 char(5)</span><br><span class="line">exec t7 &#39;456&#39;,@r1 output,@r2 output,@r3 output</span><br><span class="line">select &#39;c1&#39;&#x3D;@r1,&#39;c2&#39;&#x3D;@r2,&#39;c3&#39;&#x3D;@r3</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.执行存储过程</strong></p>
+<p>exec 存储过程名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec stud</span><br></pre></td></tr></table></figure>
+
+<p>exec 存储过程名 参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec t7 123</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.修改存储过程</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER PROC[EDURE] 存储过程名[&#123;参数列表&#125;]</span><br><span class="line">    　　AS SQL语句</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alter procedure t6 </span><br><span class="line">as</span><br><span class="line">	select c1 from table7</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.修改存储过程</strong></p>
+<p>drop procedure 用户存储过程列表</p>
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><p>l <strong>DML触发器：在执行数据操作语言（DML）事件时被调用的触发器，包括INSERT、UPDATE和DELETE语句。</strong></p>
+<p>l <strong>DDL触发器：在执行数据定义语言（DDL）事件时被调用的触发器，包括CREATE、ALTER和DROP语句。</strong></p>
+<p>l <strong>登录触发器：为响应登录事件而触发的存储过程。</strong></p>
+<h3 id="一、DML事件"><a href="#一、DML事件" class="headerlink" title="一、DML事件"></a>一、DML事件</h3><p>l <strong>AFTER触发器：在执行触发事件之后执行AFTER触发器。如果违反了约束，则永远不会执行AFTER触发器；<em>因此，这些触发器不能用于任何可能防止违反约束的处理</em>。</strong></p>
+<p>l <strong>INSTEAD OF触发器：INSTEAD OF触发器替代触发器语句的标准操作。因此，触发器可用于对一个或多个列执行错误或值检查，<em>然后在插入、更新或删除行之前执行其他操作</em>。</strong></p>
+<p><strong>1.创建触发器</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER  触发器名 </span><br><span class="line">ON &#123;表名 | 视图名&#125; [WITH ENCRYPTION] </span><br><span class="line">&#123;    &#123; &#123;FOR | AFTER | INSTEAD OF&#125; &#123;[INSERT] [,] [UPDATE][,] [DELETE]&#125;</span><br><span class="line">          [NOT FOR REPLICATION]</span><br><span class="line">          AS</span><br><span class="line">           [&#123; IF UPDATE (列名)</span><br><span class="line">               [&#123; AND | OR &#125; UPDATE (列名)] […n] &#125; ] </span><br><span class="line">          SQL语句 […n ]</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">create trigger tg</span><br><span class="line">on</span><br><span class="line">table7 after insert,update,delete</span><br><span class="line">as</span><br><span class="line">	select * from table7</span><br><span class="line">go</span><br><span class="line">insert table7(c1) values(1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.删除触发器</strong></p>
+<p>drop trigger 触发器名</p>
+<p><strong>3.禁用触发器</strong></p>
+<p>disable trigger  触发器名 on 表名</p>
+<p><strong>4.启用触发器</strong></p>
+<p>enable trigger 触发器 on 表名</p>
+<p><strong>5.instead of 触发器</strong></p>
+<p>–例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;trigscore&#39;,&#39;TR&#39;) is not null</span><br><span class="line"> drop trigger trigscore</span><br><span class="line">go</span><br><span class="line">create trigger trigscore on table7</span><br><span class="line">instead of insert</span><br><span class="line">as</span><br><span class="line">if not exists(</span><br><span class="line">select * from table7</span><br><span class="line">where c1&#x3D;(select c1 from inserted))</span><br><span class="line">	begin</span><br><span class="line">		rollback transaction</span><br><span class="line">		print&#39;要处理的字段不存在&#39;</span><br><span class="line">	end</span><br><span class="line">else</span><br><span class="line">	begin</span><br><span class="line">		insert into table7 select * from inserted</span><br><span class="line">		print&#39;已经成功处理记录&#39;</span><br><span class="line">	end</span><br><span class="line">go</span><br><span class="line">insert table7(c1,c4) values(100,&#39;lolol&#39;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h4><p>–例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;trig&#39;,&#39;TR&#39;) is not null</span><br><span class="line"> drop trigger trig</span><br><span class="line"> go</span><br><span class="line">create trigger trig</span><br><span class="line">	on table7 after insert</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	declare @temp int</span><br><span class="line">	select @temp&#x3D;inserted.c1 from inserted</span><br><span class="line">	if exists(select c1 from table7 where c1&#x3D;@temp)</span><br><span class="line">	begin</span><br><span class="line">		raiserror(&#39;数据重复，不能插入&#39;,16,1)</span><br><span class="line">		rollback</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">go</span><br><span class="line">insert table7(c1) values(1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="update"><a href="#update" class="headerlink" title="update"></a>update</h4><p>–例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;trigno&#39;,&#39;TR&#39;) is not null</span><br><span class="line"> drop trigger trigno</span><br><span class="line">go</span><br><span class="line">create trigger trigno on table7 </span><br><span class="line">after update</span><br><span class="line">as</span><br><span class="line">if update (c4)</span><br><span class="line">	begin</span><br><span class="line">		raiserror(&#39;不能修改c4&#39;,16,2)</span><br><span class="line">		rollback</span><br><span class="line">	end</span><br><span class="line">go</span><br><span class="line">update table7 set c4&#x3D;&#39;7777&#39; where c3&#x3D;&#39;dd&#39;</span><br></pre></td></tr></table></figure>
+
+<h4 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h4><p>–例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">if object_id(&#39;trigclass&#39;,&#39;TR&#39;) is not null</span><br><span class="line">drop trigger trigcalss</span><br><span class="line">go</span><br><span class="line">create trigger trigclass on table7</span><br><span class="line">after delete</span><br><span class="line">as</span><br><span class="line">	if exists(select * from deleted where c2&#x3D;102)</span><br><span class="line">	begin</span><br><span class="line">		raiserror(&#39;不能删除c2&#x3D;102的记录&#39;,16,2)</span><br><span class="line">		rollback</span><br><span class="line">	end</span><br><span class="line">go</span><br><span class="line">delete table7 where c2&#x3D;102</span><br><span class="line">go</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、DDL事件"><a href="#二、DDL事件" class="headerlink" title="二、DDL事件"></a>二、DDL事件</h3><p><strong>创建语句：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER 触发器名称</span><br><span class="line">ON &#123;ALL SERVER|DATABASE&#125; </span><br><span class="line">&#123;FOR|AFTER&#125; &#123;event_type|event_group&#125;[,…n]</span><br><span class="line">AS SQL语句</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">use test</span><br><span class="line">go</span><br><span class="line">create trigger safe</span><br><span class="line">on database after drop_table,alter_table</span><br><span class="line">as</span><br><span class="line">	begin</span><br><span class="line">		raiserror(&#39;不能修改表结构&#39;,16,2)</span><br><span class="line">		rollback</span><br><span class="line">	end</span><br><span class="line">go</span><br><span class="line">alter table table7 add c5 char(10)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="create"><a href="#create" class="headerlink" title="create"></a>create</h4><h4 id="alter"><a href="#alter" class="headerlink" title="alter"></a>alter</h4><h4 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h4><h3 id="三、登陆事件"><a href="#三、登陆事件" class="headerlink" title="三、登陆事件"></a>三、登陆事件</h3><h4 id="logon"><a href="#logon" class="headerlink" title="logon"></a>logon</h4><p>–例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">USE master</span><br><span class="line">GO</span><br><span class="line">CREATE TRIGGER triglogin ON ALL SERVER</span><br><span class="line">FOR CREATE_LOGIN</span><br><span class="line">AS</span><br><span class="line">   PRINT &#39;不允许建立登录账号&#39;</span><br><span class="line">   ROLLBACK</span><br><span class="line">GO</span><br><span class="line">create login abc with password &#x3D; &#39;123456&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四、inserted表和deleted表"><a href="#四、inserted表和deleted表" class="headerlink" title="四、inserted表和deleted表"></a>四、inserted表和deleted表</h3><p>l <strong>deleted表用于存储DELETE和UPDATE语句所影响的行的副本。在执行DELETE或UPDATE语句时，行从触发器表中删除，并传输到deleted表中。deleted表和触发器表通常没有相同的行。</strong></p>
+<p>l <strong>inserted表用于存储INSERT和UPDATE语句所影响的行的副本。在一个插入或更新事务处理中，新建行被同时添加到inserted表和触发器表中。inserted表中的行是触发器表中新行的副本。</strong></p>
+<h3 id="五、使用ALTER-TRIGGER语句修改触发器"><a href="#五、使用ALTER-TRIGGER语句修改触发器" class="headerlink" title="五、使用ALTER TRIGGER语句修改触发器"></a>五、使用ALTER TRIGGER语句修改触发器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ALTER TRIGGER 触发器名称 ON( 表名 | 视图名 ) </span><br><span class="line">[ WITH ENCRYPTION ] </span><br><span class="line">&#123; </span><br><span class="line">    &#123; (FOR | AFTER | INSTEAD OF) &#123;[DELETE] [,] [INSERT] [,] [UPDATE]   &#125;</span><br><span class="line">        [NOT FOR REPLICATION]</span><br><span class="line">        AS</span><br><span class="line">        SQL语句 […n]</span><br><span class="line">    &#125;   </span><br><span class="line">    |  &#123; (FOR | AFTER | INSTEAD OF) &#123; [INSERT] [,] [UPDATE] &#125;</span><br><span class="line">            [NOT FOR REPLICATION]</span><br><span class="line">           AS</span><br><span class="line">              &#123;IF UPDATE(列)</span><br><span class="line">                 [ &#123; AND | OR &#125; UPDATE (列) ] […n] </span><br><span class="line">            SQL语句 […n] </span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h2><h3 id="一、登录账号"><a href="#一、登录账号" class="headerlink" title="一、登录账号"></a>一、登录账号</h3><h4 id="1-创建登录账号"><a href="#1-创建登录账号" class="headerlink" title="1.创建登录账号"></a>1.创建登录账号</h4><p>create login 登录名 with 【password=’密码’】</p>
+<h4 id="2-修改和删除登录名"><a href="#2-修改和删除登录名" class="headerlink" title="2.修改和删除登录名"></a>2.修改和删除登录名</h4><p>alter login 登录名 with 【password=‘密码’，name=新的登录名称】 </p>
+<p>drop login 登录名</p>
+<h3 id="二、用户账号"><a href="#二、用户账号" class="headerlink" title="二、用户账号"></a>二、用户账号</h3><h4 id="1-创建用户账号"><a href="#1-创建用户账号" class="headerlink" title="1.创建用户账号"></a>1.创建用户账号</h4><p>create user 用户名 </p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user u1 for login lo1 with default_schema&#x3D;dbo</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改用户账号"><a href="#2-修改用户账号" class="headerlink" title="2.修改用户账号"></a>2.修改用户账号</h4><p>alter user 用户名 with name=新用户名</p>
+<h4 id="3-删除用户账号"><a href="#3-删除用户账号" class="headerlink" title="3.删除用户账号"></a>3.删除用户账号</h4><p>drop user 用户名</p>
+<h3 id="三、权限和角色"><a href="#三、权限和角色" class="headerlink" title="三、权限和角色"></a>三、权限和角色</h3><h4 id="1-授予权限"><a href="#1-授予权限" class="headerlink" title="1.授予权限"></a>1.授予权限</h4><p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant alter,delete,insert,select,update on table7 to user1</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-禁止或撤销权限"><a href="#2-禁止或撤销权限" class="headerlink" title="2.禁止或撤销权限"></a>2.禁止或撤销权限</h4><p>禁止：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deny delete on table7 to user1</span><br></pre></td></tr></table></figure>
+
+<p>撤销：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remoke create table to user1</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-角色"><a href="#3-角色" class="headerlink" title="3.角色"></a>3.角色</h4>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Brunhilde</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2020/07/09/sql%E8%AF%AD%E5%8F%A5%E5%A4%8D%E4%B9%A0/">http://yoursite.com/2020/07/09/sql%E8%AF%AD%E5%8F%A5%E5%A4%8D%E4%B9%A0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Brunhilde</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/09/sql%E8%AF%AD%E5%8F%A5%E5%A4%8D%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="sql语句复习">
+                        
+                        <span class="card-title">sql语句复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            游标例子1：
+12345678910111213USE schoolGO--声明游标DECLARE st_cursor CURSOR FOR SELECT 学号,姓名,班号 FROM student--打开游标OPEN st_cursor-
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Brunhilde
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/14/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Brunhilde
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Brunhilde</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

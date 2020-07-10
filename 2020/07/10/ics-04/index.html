@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Brunhilde">
+    <meta name="keywords" content="ics-04, Brunhilde">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Brunhilde</title>
+    <title>ics-04 | Brunhilde</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">ics-04</h1>
                 </div>
             </div>
         </div>
@@ -458,18 +458,56 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <h1 id="ics-04"><a href="#ics-04" class="headerlink" title="ics-04"></a>ics-04</h1><p>这是攻防世界的一道关于sql注入的题目</p>
+<p>一下是分析过程</p>
+<p>首先题目告诉我们漏洞出现在登录和注册这两个地方</p>
+<p>然后就在登录和注册这两个地方测试发现没什么问题</p>
+<p>注册这个地方可以一个用户名重复注册，而且存在xss注入，按照之前做靶场的方法试了一下发现xss不行不返回cookie信息，不过xss没什么用。</p>
+<p>之后发现了一个叫忘记密码的地方，在这里输入账号信息就能出发xss不过这对我们拿到flag没有帮助。后来在网上搜索攻略发现这里存在sql注入，先是输入 ‘ or 1 = 1 ; #  发现确实存在，于是接下来可以手动注入也可以用sqlmap注入，</p>
+<h2 id="sqlmap注入"><a href="#sqlmap注入" class="headerlink" title="sqlmap注入"></a>sqlmap注入</h2><p>sqlmap注入的话输入如下语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">python sqlmap.py -u http:&#x2F;&#x2F;220.249.52.133:43366&#x2F;findpwd.php --data username&#x3D;1 --dbs</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p><img src="/images/image.jpg" alt="sss"><br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>得到了数据库的库名</p>
+<p><img src="F:%5Cweb%E5%AE%89%E5%85%A8%5C%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%5Cblog%5Cmyblog%5Csource%5C%E5%BA%93%E5%90%8D.JPG" alt=""></p>
+<p>发现数据库库名为cetc004</p>
+<p>于是接下来再用sqlmap跑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http:&#x2F;&#x2F;220.249.52.133:43366&#x2F;findpwd.php --data username&#x3D;1 -D cetc004 --dump</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710113707899.png" alt="image-20200710113707899"></p>
+<p>得到详细数据，发现含有flag的用户名为 cdwcewf2e323 而且密码也爆破出来了，直接输入账户密码即可</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114012247.png" alt="image-20200710114012247"></p>
+<h2 id="手动注入"><a href="#手动注入" class="headerlink" title="手动注入"></a>手动注入</h2><p>注入点在忘记密码页面</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114152494.png" alt="image-20200710114152494"></p>
+<p>发现可以注入</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114219668.png" alt="image-20200710114219668"></p>
+<p>于是尝试爆字段长度</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114501515.png" alt="image-20200710114501515"></p>
+<p>发现并不行</p>
+<p>看别人的攻略后发现有四个字段，于是开始构建查询语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39; union select 1,2,group_concat(schema_name),4 from information_schema.schemata; #</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114643095.png" alt="image-20200710114643095"></p>
+<p>得到库名为cetc004</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710114817276.png" alt="image-20200710114817276"></p>
+<p>查询到表名为user，接着在查询字段名和字段信息</p>
+<p>构建查询语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39; union select 1,2,group_concat(column_name),4 from information_schema.columns where table_schema&#x3D;&#39;cetc004&#39; and table_name&#x3D;&#39;user&#39; #</span><br></pre></td></tr></table></figure>
+
+<p>查询到四个字段名</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115050196.png" alt="image-20200710115050196"></p>
+<p>再往下查询</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115201974.png" alt="image-20200710115201974"></p>
+<p>得到用户名为c3tlwDmIn23密码为2f8667f381ff50ced6a3edc259260ba9</p>
+<p>很显然密码使用md5加密过的</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115356260.png" alt="image-20200710115356260"></p>
+<p>但是因为之前发现注册页面有一个漏洞就是可以同一个用户名反复注册于是借用这个bug来更改密码</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115547253.png" alt="image-20200710115547253"></p>
+<p>登录</p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115706002.png" alt="image-20200710115706002"></p>
+<p><img src="C:%5CUsers%5CASUS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200710115730099.png" alt="image-20200710115730099"></p>
+<p>登录成功，拿到flag</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个题目其实就是sql注入问题，但是在密码这个方面玩了点花样，查到密码是经过加密的，好在这里的注册界面有这个bug可以利用。</p>
+<p>其实一开始我没想到是sql注入，我以为是xss，于是就跑偏了，看来还是不是很熟悉这些，还是要多多努力</p>
 
             </div>
             <hr/>
@@ -495,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/10/hello-world/">http://yoursite.com/2020/07/10/hello-world/</a>
+                    <a href="http://yoursite.com/2020/07/10/ics-04/">http://yoursite.com/2020/07/10/ics-04/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -698,9 +736,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/10/ics-04/">
                     <div class="card-image">
@@ -722,9 +761,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -733,6 +772,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -743,25 +783,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/09/sql%E8%AF%AD%E5%8F%A5%E5%A4%8D%E4%B9%A0/">
+                <a href="/2020/07/10/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="sql语句复习">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">sql语句复习</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            游标例子1：
-12345678910111213USE schoolGO--声明游标DECLARE st_cursor CURSOR FOR SELECT 学号,姓名,班号 FROM student--打开游标OPEN st_cursor-
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
                             </span>
                         <span class="publish-author">
                             

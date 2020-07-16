@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Pytips, Brunhilde">
+    <meta name="keywords" content="Spider, Brunhilde">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Pytips | Brunhilde</title>
+    <title>Spider | Brunhilde</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Pytips</h1>
+                    <h1 class="description center-align post-title">Spider</h1>
                 </div>
             </div>
         </div>
@@ -458,16 +458,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>a=[]<br>b={‘name’:’fokil’}<br>a.append(b.copy())<br>和<br>a={‘name’:[]}<br>a[‘name’].append(‘fokil’)<br>这两种方式的不同和各自的适用范围，举例说明</p>
-<p>最本质的bai区别：第一种方法得出的a是列表，而第二du种的a是字典<br>用python语句zhi表达来看就是：<br>1.type(a) == list<br>2.type(a) == dict<br>在交互式界dao面下显示：<br>第一种：</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>a<br>[{‘name’:’fokil’}]<br>此时a是一个列表，他具有列表的一切方法和属性，但不具备任何字典的方法和属性。列表可以有N个元素，元素的类型是任意的，与列表本身无关。而此时的a有一个元素，该元素是一个字典——但这并不代表整个列表a带有任何字典的性质。明白？<br>第二种：<br>a<br>{‘name’:[‘fokil’]}<br>同上，此时a是一个字典，具有字典的一切方法和属性，但不具备任何列表的方法和属性。字典可以有N个元素，每个元素由一对key和内容的组合构成。key可以是任何单一对象的类型（不能是列表或字典——但可以是元组。当然，还可以是数字、字符/字符串，甚至是文件对象），而key对应的内容则可以是任意类型的。在此时，a中只有一个元素，key是一个字符串，而内容则是一个含有一个字符串元素的列表——同样，这不意味着a具有任何的列表性质<br>总而言之，严格的讲：没有“字典列表”或“列表字典”这种概念<br>只有一个列表，他包含的元素的类型是字典——当然，列表中的元素可以是不同类型的，譬如：<br>a = [1, ‘test’, [2,3,4], {‘name’:’fokil’}]<br>同理，只有一个字典，他包含的元素中的一部分是列表（当然，key部分不可能是列表）。当然，也有可能是不同类型的元素：<br>a = {1:’b’,(1,2,3):[4,5,6],’test’:{‘test2’:[‘test3’]}}</p>
-</blockquote>
-</blockquote>
-</blockquote>
-
+                <h1 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h1><h2 id="content-amp-text"><a href="#content-amp-text" class="headerlink" title=".content &amp; .text"></a>.content &amp; .text</h2><p>requests对象的get和post方法都会返回一个Response对象，这个对象里面存的是服务器返回的所有信息，包括响应头，响应状态码等。其中返回的网页部分会存在.content和.text两个对象中。</p>
+<p>.content中间存的是字节码 .text存的是.content编码后的字符串</p>
+<p>一般来说 .text直接用比较方便 返回的是字符串 但是有时候会解析不正常导致</p>
+<p>返回的是一堆乱码这时用.content.decode(‘utf-8’)就可以使其显示正常。</p>
+<p>总的来说.text是现成的字符串，.content还要编码，但是.text不是所有时候显示都正常，这是就需要用.content进行手动编码。</p>
+<p>————————————————<br>原文链接：<a href="https://blog.csdn.net/i_python_han/article/details/80803923" target="_blank" rel="noopener">https://blog.csdn.net/i_python_han/article/details/80803923</a></p>
+<h2 id="BeautifulSoup4"><a href="#BeautifulSoup4" class="headerlink" title="BeautifulSoup4"></a>BeautifulSoup4</h2><h2 id="re"><a href="#re" class="headerlink" title="re"></a>re</h2><h2 id="selenium-amp-ghost"><a href="#selenium-amp-ghost" class="headerlink" title="selenium &amp; ghost"></a>selenium &amp; ghost</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h2 id="ip代理池"><a href="#ip代理池" class="headerlink" title="ip代理池"></a>ip代理池</h2><h2 id="django-amp-flask"><a href="#django-amp-flask" class="headerlink" title="django &amp; flask"></a>django &amp; flask</h2><h2 id="scrapy-pyspider"><a href="#scrapy-pyspider" class="headerlink" title="scrapy.pyspider"></a>scrapy.pyspider</h2>
             </div>
             <hr/>
 
@@ -492,7 +489,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/16/Pytips/">http://yoursite.com/2020/07/16/Pytips/</a>
+                    <a href="http://yoursite.com/2020/07/16/Spider/">http://yoursite.com/2020/07/16/Spider/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -695,9 +692,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/16/Spider/">
                     <div class="card-image">
@@ -715,9 +713,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -726,6 +724,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -736,28 +735,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/10/ics-05/">
+                <a href="/2020/07/16/Pytips/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ics-05">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Pytips">
                         
-                        <span class="card-title">ics-05</span>
+                        <span class="card-title">Pytips</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ics-05本题目一开始拿到我的思路是先到处看看，无意中点到了左上角的图片然后url有了变化
-
-url后面有一个get传参
-
-于是我觉得可能是sql注入，但是不管是手动注入还是sqlmap跑都没有结果，后来参考网上https://www.j
+                            a=[]b={‘name’:’fokil’}a.append(b.copy())和a={‘name’:[]}a[‘name’].append(‘fokil’)这两种方式的不同和各自的适用范围，举例说明
+最本质的bai区别：第一种方法得出的a
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
                             </span>
                         <span class="publish-author">
                             

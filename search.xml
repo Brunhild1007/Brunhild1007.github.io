@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Pytips</title>
+      <link href="/2020/07/16/Pytips/"/>
+      <url>/2020/07/16/Pytips/</url>
+      
+        <content type="html"><![CDATA[<p>a=[]<br>b={‘name’:’fokil’}<br>a.append(b.copy())<br>和<br>a={‘name’:[]}<br>a[‘name’].append(‘fokil’)<br>这两种方式的不同和各自的适用范围，举例说明</p><p>最本质的bai区别：第一种方法得出的a是列表，而第二du种的a是字典<br>用python语句zhi表达来看就是：<br>1.type(a) == list<br>2.type(a) == dict<br>在交互式界dao面下显示：<br>第一种：</p><blockquote><blockquote><blockquote><p>a<br>[{‘name’:’fokil’}]<br>此时a是一个列表，他具有列表的一切方法和属性，但不具备任何字典的方法和属性。列表可以有N个元素，元素的类型是任意的，与列表本身无关。而此时的a有一个元素，该元素是一个字典——但这并不代表整个列表a带有任何字典的性质。明白？<br>第二种：<br>a<br>{‘name’:[‘fokil’]}<br>同上，此时a是一个字典，具有字典的一切方法和属性，但不具备任何列表的方法和属性。字典可以有N个元素，每个元素由一对key和内容的组合构成。key可以是任何单一对象的类型（不能是列表或字典——但可以是元组。当然，还可以是数字、字符/字符串，甚至是文件对象），而key对应的内容则可以是任意类型的。在此时，a中只有一个元素，key是一个字符串，而内容则是一个含有一个字符串元素的列表——同样，这不意味着a具有任何的列表性质<br>总而言之，严格的讲：没有“字典列表”或“列表字典”这种概念<br>只有一个列表，他包含的元素的类型是字典——当然，列表中的元素可以是不同类型的，譬如：<br>a = [1, ‘test’, [2,3,4], {‘name’:’fokil’}]<br>同理，只有一个字典，他包含的元素中的一部分是列表（当然，key部分不可能是列表）。当然，也有可能是不同类型的元素：<br>a = {1:’b’,(1,2,3):[4,5,6],’test’:{‘test2’:[‘test3’]}}</p></blockquote></blockquote></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ics-05</title>
       <link href="/2020/07/10/ics-05/"/>
       <url>/2020/07/10/ics-05/</url>

